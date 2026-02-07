@@ -4,10 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node node_modules/vite/dist/node/cli.js",
-    "build": "node node_modules/vite/dist/node/cli.js build",
+    "dev": "npm exec -- vite",
+    "build": "npm exec -- vite build",
     "lint": "eslint .",
-    "preview": "node node_modules/vite/dist/node/cli.js preview",
+    "preview": "npm exec -- vite preview",
+    "vercel-build": "npm run build",
     "test": "vitest run",
     "test:watch": "vitest"
   },
