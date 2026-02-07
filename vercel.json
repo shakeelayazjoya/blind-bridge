@@ -1,6 +1,6 @@
 {
-  "buildCommand": "npm install && npm run build",
   "framework": "vite",
+  "buildCommand": "npx vite build",
   "installCommand": "npm install",
   "env": {
     "NODE_VERSION": "20"
