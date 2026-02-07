@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Lexend:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    --primary: 217 91% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 94%;
+    --secondary-foreground: 220 25% 15%;
+
+    --muted: 210 25% 93%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 168 60% 38%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 25% 88%;
+    --input: 214 25% 88%;
+    --ring: 217 91% 42%;
+
+    --radius: 0.75rem;
+
+    --sidebar-bg: 0 0% 100%;
+    --sidebar-fg: 220 25% 10%;
+    --sidebar-border: 214 25% 90%;
+    --sidebar-section-bg: 210 30% 97%;
+    --sidebar-hover: 217 91% 95%;
+    --sidebar-active: 217 91% 42%;
+
+    --success: 142 60% 40%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --font-body: 'Atkinson Hyperlegible', system-ui, sans-serif;
+    --font-heading: 'Lexend', system-ui, sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 25% 6%;
+    --foreground: 210 20% 95%;
+
+    --card: 220 20% 10%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 20% 10%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 20% 18%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 217 20% 18%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 168 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 217 20% 22%;
+    --input: 217 20% 22%;
+    --ring: 217 91% 60%;
+
+    --sidebar-bg: 220 20% 8%;
+    --sidebar-fg: 210 20% 95%;
+    --sidebar-border: 217 20% 18%;
+    --sidebar-section-bg: 220 20% 12%;
+    --sidebar-hover: 217 50% 20%;
+    --sidebar-active: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Accessibility Overrides - Applied via classes on <html> */
+.a11y-high-contrast {
+  --background: 0 0% 0%;
+  --foreground: 60 100% 50%;
+  --primary: 60 100% 50%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 15%;
+  --secondary-foreground: 60 100% 50%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 60 100% 50%;
+  --card: 0 0% 5%;
+  --card-foreground: 60 100% 50%;
+  --border: 60 100% 50%;
+  --accent: 120 100% 50%;
+  --accent-foreground: 0 0% 0%;
+}
+
+.a11y-invert {
+  filter: invert(1) hue-rotate(180deg);
+}
+.a11y-invert img,
+.a11y-invert video {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.a11y-grayscale {
+  filter: grayscale(1);
+}
+
+.a11y-blue-filter {
+  filter: sepia(0.3) saturate(0.8);
+}
+
+.a11y-dyslexia-font * {
+  font-family: 'Atkinson Hyperlegible', 'OpenDyslexic', sans-serif !important;
+}
+
+.a11y-bold-text * {
+  font-weight: 700 !important;
+}
+
+.a11y-highlight-headings h1,
+.a11y-highlight-headings h2,
+.a11y-highlight-headings h3,
+.a11y-highlight-headings h4,
+.a11y-highlight-headings h5,
+.a11y-highlight-headings h6 {
+  outline: 3px solid hsl(var(--primary));
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.a11y-highlight-links a {
+  outline: 3px solid hsl(var(--accent));
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.a11y-hide-images img {
+  visibility: hidden;
+}
+
+.a11y-big-cursor,
+.a11y-big-cursor * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24'%3E%3Cpath fill='black' stroke='white' stroke-width='1' d='M5 3l14 7-6 2-4 6z'/%3E%3C/svg%3E") 4 4, auto !important;
+}
+
+.a11y-reduce-motion,
+.a11y-reduce-motion * {
+  animation-duration: 0.001ms !important;
+  transition-duration: 0.001ms !important;
+}
+
+.a11y-focus-mode .a11y-dimmable {
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+.a11y-focus-mode main,
+.a11y-focus-mode [role="main"] {
+  opacity: 1;
+}
+
+/* Custom text color override - needs !important to beat Tailwind utility classes */
+.a11y-custom-text-color *:not(.accessibility-sidebar):not(.accessibility-sidebar *) {
+  color: var(--custom-text-color) !important;
+}
+
+/* Custom bg color override */
+.a11y-custom-bg-color {
+  background-color: var(--custom-bg-color) !important;
+}
+
+/* Reading ruler */
+.a11y-reading-ruler {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 40px;
+  border-top: 2px solid hsl(var(--primary));
+  border-bottom: 2px solid hsl(var(--primary));
+  background: hsl(var(--primary) / 0.08);
+  pointer-events: none;
+  z-index: 99999;
+  transition: top 0.05s linear;
+}
+
+/* Reading mask */
+.a11y-reading-mask-top,
+.a11y-reading-mask-bottom {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.7);
+  pointer-events: none;
+  z-index: 99998;
+  transition: all 0.05s linear;
+}
+
+/* Skip to content */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100000;
+  padding: 1rem 1.5rem;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  font-weight: 700;
+  border-radius: 0 0 var(--radius) 0;
+}
+.skip-to-content:focus {
+  left: 0;
+}
