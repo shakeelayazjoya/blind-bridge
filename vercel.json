@@ -1,8 +1,6 @@
 {
   "framework": "vite",
-  "buildCommand": "npx vite build",
+  "buildCommand": "node scripts/build.mjs",
   "installCommand": "npm install",
-  "env": {
-    "NODE_VERSION": "20"
-  }
+  "outputDirectory": "dist"
 }
